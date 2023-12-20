@@ -1,0 +1,236 @@
+
+.hoverable{
+    display:inline-block;
+    backface-visibility: hidden;
+    vertical-align: middle;
+    position:relative;
+    box-shadow: 0 0 1px rgba(0,0,0,0);
+    tranform: translateZ(0);
+    transition-duration: .3s;
+    transition-property:transform;
+  }
+  
+  .hoverable:before{
+    position:absolute;
+    pointer-events: none;
+    z-index:-1;
+    content: '';
+    top: 200%;
+    left: 5%;
+    height:30px;
+    width:90%;
+    opacity:0;
+    background: -webkit-radial-gradient(center, ellipse, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+    /* W3C */
+    transition-duration: 0.3s;
+    transition-property: transform, opacity;
+  }
+  
+  .hoverable:hover, .hoverable:active, .hoverable:focus{
+    transform: translateY(-5px);
+  }
+  .hoverable:hover:before, .hoverable:active:before, .hoverable:focus:before{
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+  
+  
+  
+  @keyframes bounce-animation {
+    16.65% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+    }
+  
+    33.3% {
+      -webkit-transform: translateY(-6px);
+      transform: translateY(-6px);
+    }
+  
+    49.95% {
+      -webkit-transform: translateY(4px);
+      transform: translateY(4px);
+    }
+  
+    66.6% {
+      -webkit-transform: translateY(-2px);
+      transform: translateY(-2px);
+    }
+  
+    83.25% {
+      -webkit-transform: translateY(1px);
+      transform: translateY(1px);
+    }
+  
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+  
+  .bounce {
+    animation-name: bounce-animation;
+    animation-duration: 2s;
+  }
+  
+  
+  
+  /*everything below here is just setting up the page, so dont worry about it */
+  
+  
+  @media (min-width: 768px) {
+    .navbar{
+      text-align: center !important;
+      float: none;
+      display: inline-block;
+    }
+  }
+  
+  body {
+    background-color: rgba(0,0,0,1);
+    font-weight:600;
+    text-align:center !important;
+    color: white;
+  }
+  
+  nav {
+    background: none !important;
+    text-transform:uppercase;
+    li {
+      margin-left: 3em;
+      margin-right: 3em;
+      
+      a{
+        transition: .5s color ease-in-out;
+      }
+    }
+  }
+  
+  .page-title {
+    opacity: .75 !important;
+  }
+  
+  $red: red;
+$white: white;
+$green: green;
+$black: black;
+$blue: blue;
+$cyan: cyan;
+$yellow: yellow;
+$grey: grey;
+
+$base-font-size: 1rem;
+$base-padding: 0.5em;
+$base-margin: 0.5em;
+$base-gap: 0.5rem;
+$base-border-radius: 20px;
+$base-lh: 1.4;
+$font-weights: (
+  "regular": 400,
+  "medium": 500,
+  "semi": 600,
+  "bold": 700
+);
+
+// BREAKPOINTS
+$breakpoints: (
+  "medium": 30.0625em,
+  "large": 48.0625em,
+  "xlarge": 80em
+);
+$breakpoints-down: (
+  "large": 79.9375em,
+  "medium": 48em,
+  "small": 30em
+);
+
+@mixin breakpoint($size) {
+  @media all and (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+@mixin breakpoint-down($size) {
+  @media all and (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
+
+// FLEX RELATED VARIABLES
+$justify: "flex-start", "flex-end", "center", "space-between", "space-around",
+  "space-evenly";
+$alignments: "flex-start", "flex-end", "center", "stretch";
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  min-block-size: 100vh;
+  scroll-behavior: smooth;
+
+  @include breakpoint(medium) {
+    font-size: 81.25%;
+  }
+  @include breakpoint(large) {
+    font-size: 100%;
+  }
+  @include breakpoint(xlarge) {
+    font-size: 118.75%;
+  }
+
+  @media (prefers-reduced-motion) {
+    scroll-behavior: auto;
+  }
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  --font-stack-poppins: "Poppins", sans-serif;
+}
+
+body {
+  min-block-size: 100vh;
+  font: map-get($font-weights, regular) $base-font-size;
+  line-height: $base-lh;
+  position: relative;
+}
+
+.message1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  overflow: hidden;
+  width: 210px;
+  margin: 0 auto;
+  font-size: 30px;
+  text-transform: uppercase;
+  padding-inline: 0.25rem;
+  border-right: 2px solid rgb(0 0 0/0.75);
+  animation: typeEffect 4000ms steps(40) 1000ms 2 alternate,
+    blinkTextCursor 1000ms steps(20) infinite normal;
+}
+
+@keyframes typeEffect {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 210px;
+  }
+}
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: rgba(0, 0, 0, 0.75);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}

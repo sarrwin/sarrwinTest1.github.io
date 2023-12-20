@@ -1,0 +1,366 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    font-family: sans-serif;
+    background-image: url("dark4.jpg") ;
+  
+}
+/* Book */
+.book {
+display: flex;
+    position: relative !important;
+    width: 360px;
+    height: 60vh;
+    transition: transform 0.5s;
+    max-width: 100%;
+    align-content: center !important;
+    left: 550px !important;
+    /* Ensure the book is responsive */
+    
+}
+
+
+h1{
+    font-size:medium !important;
+    font-family:'Times New Roman', Times, serif;
+    font-style:italic;
+    text-align: center;
+}
+h3{
+  font-size:large !important;
+  font-family:'Times New Roman', Times, serif;
+  font-style:italic;
+  text-align: center;
+  margin-bottom: 700px !important;
+  color:#fefefe;
+  position: absolute;
+  top:10px;
+  left: 10px;
+}
+
+
+
+h2{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.paper  {
+    position: absolute;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 ;
+    perspective: 1500px !important;
+
+}
+
+.front,
+.back {
+    background-color: rgb(255, 191, 191) !important;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transition: transform 0.5s;
+}
+
+.front {
+    z-index: 1;
+    backface-visibility: hidden;
+    border-left: 3px solid powderblue;
+}
+
+.back {
+    z-index: 0;
+}
+
+.front-content,
+.back-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-content {
+    transform: rotateY(180deg)
+}
+
+/* Paper flip effect */
+.flipped .front,
+.flipped .back {
+    transform: rotateY(-180deg);
+}
+
+/* Controller Buttons */
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+   
+    
+    transition: transform 0.5s;
+}
+#next-btn {
+  position:absolute;
+  top: 300px;
+ right: 400px;
+  margin: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  background-color: #000000;
+}
+
+#prev-btn {
+  position: absolute;
+  top: 300px;
+ left: 400px;
+  margin: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  background-color: #000000;
+}
+
+
+
+
+
+button:focus {
+    outline: none;
+}
+
+button:hover i {
+    color: #636363;
+}
+
+i {
+    font-size: 50px;
+    color: gray;
+}
+
+/* Paper stack order */
+#p1 {
+  z-index: 12;
+}
+
+#p2 {
+  z-index: 11;
+}
+
+#p3 {
+  z-index: 10;
+}
+
+#p4 {
+  z-index: 9;
+}
+
+#p5 {
+  z-index: 8;
+}
+
+#p6 {
+  z-index: 7;
+}
+
+#p7 {
+  z-index: 6;
+}
+
+#p8 {
+  z-index: 5;
+}
+
+#p9 {
+  z-index: 4;
+}
+
+#p10 {
+  z-index: 3;
+}
+
+#p11 {
+  z-index: 2;
+}
+#p12 {
+  z-index: 1;
+}
+
+
+body {
+  background-image: 'dark.jpg'!important;
+    font-weight: 600;
+    text-align: center !important;
+    color: rgb(0, 0, 0);
+  }
+  
+  nav {
+    background: none !important;
+    text-transform: uppercase;
+  }
+  nav li {
+  
+  }
+  nav li a {
+    transition: 0.5s color ease-in-out;
+  }
+  
+  .page-title {
+    opacity: 0.75 !important;
+  }
+  
+  .navLink:hover {
+    transform : scale(1.2);
+  }
+  .navLink {
+    transition : all 200ms linear;
+    padding:8px;
+    width:72px;
+    height:72px;
+    border-radius: 8px;
+    border : 1px solid #c1d9ee;
+    background: linear-gradient(225deg, #d3eeff, #b1c8e0);
+    box-shadow:  -5px 5px 16px #a5bad1,
+                 5px -5px 16px #ddedff;
+  }
+  .navLink i {
+    font-size:2em
+  }
+  @media screen and (max-width:425px){
+    .navLink i {
+      font-size:1.5em
+    }
+    .navLink {
+      width:48px;
+      height:48px;
+      line-height: 32px;
+    }
+    .navLabel {
+      display:none;
+    }
+  }
+  .navLink a {
+    text-decoration: none;
+    color : #204063
+  }
+  .smallContainer {
+    max-width:720px;
+    margin:0px auto;
+    background: #c1d9ee;
+  }
+  .navLabel {
+    font-size:12px
+  }
+  .navLinkActive *{
+    color:#fff !important;
+  }
+  .navLinkActive {
+    background:#3d5f80
+  }
+  
+
+    
+    
+  
+  #mb-2{
+    left: 300px;
+  }
+  #f1{
+    background-color: rgb(160, 75, 75)
+  }
+
+  #b1{
+    background-color: rgb(160, 75, 75)
+  }
+
+  #b12{
+    background-color: rgb(160, 75, 75)
+  }
+  
+  #f2{
+    background-color: rgb(189, 117, 117)
+  }
+  
+  #b2{
+    background-color: #cbb5d4;
+  }
+
+  #f3{
+    background-color:#cbb5d4;
+  }
+  #b3{
+    background-color: #7fa8d1;
+  }
+
+  #f4{
+    background-color: #7fa8d1;
+  }
+
+  #b4{
+    background-color: #9c859b;
+  }
+
+  #f5{
+    background-color: #9c859b;
+  }
+
+  #b5{
+    background-color: #b5b68b;
+  }
+  #f6{
+    background-color: #b5b68b;
+  }
+
+  #b6{
+    background-color: #d1c3c3;
+  }
+
+  #f7{
+    background-color: #d1c3c3;
+  }
+
+  #b7{
+    background-color: #5a9b77;
+  }
+  #f8{
+    background-color: #5a9b77;
+  }
+
+
+  #b8{
+    background-color: #f0edce;
+  }
+  #f9{
+    background-color: #f0edce;
+  }
+
+  #b9{
+    background-color: #9dccdf;
+  }
+
+  #f10{
+    background-color: #9dccdf;
+  }
+
+  #b11{
+    background-color: #b96988;
+  }
+
+  #f12{
+    background-color: #b96988;
+  }
+

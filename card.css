@@ -1,0 +1,331 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+  background-color: rgb(130, 204, 130)!important;
+}
+
+.birthdayCard {
+  
+  width: 250px;
+  height: 650px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: perspective;
+  transition:1s;
+  
+}
+
+.birthdayCard:hover {
+  transform: perspective(2500px) rotate(5deg);
+  box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2),
+    0 10px 100px rgba(0, 0, 0, 0.5);
+}
+
+.birthdayCard:hover .cardFront {
+  transform: rotateY(-160deg);
+}
+
+.birthdayCard:hover .happy {
+  visibility: hidden;
+}
+
+.cardFront {
+  position: relative;
+  background: linear-gradient(45deg, #f3ecf3, #7e3c78);
+  width: 450px;
+  height: 650px;
+  overflow: hidden;
+  transform-origin: left;
+  box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2),
+    30px 0 50px rgba(0, 0, 0, 0.4);
+  transition: 0.6s;
+}
+.cardFront::before {
+  /* content: '\2665'; Unicode for heart shape */
+  font-size: 5em; /* Adjust size as needed */
+  color: #ff4d6a; /* Heart color */
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 1; /* Behind other content */
+}
+
+.cardFront::after {
+  /* content: '\2605 \2605 \2605 \2605 \2605'; Unicode for stars */
+  font-size: 2em;
+  color: #fff;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Circles */
+.cardFront .circle {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.cardFront .circle-1 {
+  width: 20px;
+  height: 20px;
+  top: 20%;
+  left: 20%;
+}
+
+.cardFront .circle-2 {
+  width: 15px;
+  height: 15px;
+  top: 60%;
+  left: 80%;
+}
+
+
+.happy {
+  font-family: "Courier New  ";
+  font-style: italic;
+  text-align: center;
+  margin: 30px;
+  background-image: linear-gradient(120deg, #8b6b8b 0%, #fce1ff 100%);
+  transition: 0.1s;
+}
+
+.balloons {
+  position: absolute;
+}
+
+.balloon-1,
+.balloon-2,
+.balloon-3,
+.balloon-4 {
+  position: absolute;
+  width: 85px;
+  height: 105px;
+  border-radius: 50%;
+}
+
+.balloon-1 {
+  background-color: rgba(255, 40, 90, 0.7);
+  left: 40px;
+  top: 110px;
+}
+
+.balloon-2 {
+  background-color: rgba(9, 215, 160, 0.7);
+  left: 310px;
+  top: 110px;
+}
+
+.balloon-3 {
+  background-color: rgba(255, 186, 26, 0.7);
+  left: 130px;
+  top: 110px;
+}
+
+.balloon-4 {
+  background-color: rgba(12, 122, 159, 0.7);
+  left: 220px;
+  top: 110px;
+}
+
+#text{
+  position: absolute;
+  top:50px;
+  left: 10px;
+}
+
+.balloon-1::before,
+.balloon-2::before,
+.balloon-3::before,
+.balloon-4::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 455px;
+  background-color: #ffc848;
+  top: 95px;
+  left: 43px;
+}
+
+.balloon-1::after,
+.balloon-2::after,
+.balloon-3::after,
+.balloon-4::after {
+  content: "";
+  position: absolute;
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+  top: 94px;
+  left: 37px;
+}
+
+.balloon-1::after {
+  border-bottom: 0px solid #ff3e6b;
+}
+
+.balloon-2::after {
+  border-bottom: 10px solid #04b183;
+}
+
+.balloon-3::after {
+  border-bottom: 10px solid #ffc94c;
+}
+
+.balloon-4::after {
+  border-bottom: 10px solid #13a9bd;
+}
+
+.cardInside {
+  position: absolute;
+  background-color: #fff;
+  width: 450px;
+  height: 650px;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2);
+}
+
+p {
+  font-family: "Comic Sans MS", cursive;
+  margin: 40px;
+  color: #333;
+}
+
+.name {
+  position: absolute;
+  left: 150px;
+  top: 200px;
+  color: #2c1e1e;
+}
+
+.back {
+  font-family: Tahoma, sans-serif;
+  color: #333;
+  text-align: center;
+  margin: 30px;
+  outline-color: #333;
+  outline-style: dotted;
+}
+
+.hoverable {
+  display: inline-block;
+  backface-visibility: hidden;
+  vertical-align: middle;
+  position: relative;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  tranform: translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+
+/*everything below here is just setting up the page, so dont worry about it */
+@media (min-width: 768px) {
+.navbar {
+  text-align: center !important;
+  float: none;
+  display: inline-block;
+  
+}
+}
+body {
+background-color: black;
+font-weight: 600;
+text-align: center !important;
+color: rgb(0, 0, 0);
+}
+
+nav {
+background: none !important;
+text-transform: uppercase;
+}
+nav li {
+
+}
+nav li a {
+transition: 0.5s color ease-in-out;
+}
+
+.page-title {
+opacity: 0.75 !important;
+}
+
+.navLink:hover {
+transform : scale(1.2);
+}
+.navLink {
+transition : all 200ms linear;
+padding:8px;
+width:72px;
+height:72px;
+border-radius: 8px;
+border : 1px solid #c1d9ee;
+background: linear-gradient(225deg, #d3eeff, #b1c8e0);
+box-shadow:  -5px 5px 16px #a5bad1,
+             5px -5px 16px #ddedff;
+}
+.navLink i {
+font-size:2em
+}
+@media screen and (max-width:425px){
+.navLink i {
+  font-size:1.5em
+}
+.navLink {
+  width:48px;
+  height:48px;
+  line-height: 32px;
+}
+.navLabel {
+  display:none;
+}
+}
+.navLink a {
+text-decoration: none;
+color : #204063
+}
+.smallContainer {
+max-width:780px;
+margin:0px auto;
+background: #c1d9ee;
+}
+.navLabel {
+font-size:12px
+}
+.navLinkActive *{
+color:#fff !important;
+}
+.navLinkActive {
+background:#3d5f80
+}
+body {
+margin: 0;
+padding: 0;
+}
+
+.side-navigation {
+position: fixed;
+top: 0;
+left: 0;
+height: 100%;
+width: 80px; /* Adjust as needed */
+background-color: #fff; /* Set your preferred background color */
+border-right: 1px solid #ddd; /* Optional: Add a border for separation */
+box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+}
+
+.smallContainer {
+padding: 10px;
+}
+
+.navLink {
+padding: 10px;
+text-align: center;
+}
+
+/* Add more styles as needed */
+
+/* Optional: Adjust styles for active link */
